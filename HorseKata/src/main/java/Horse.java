@@ -7,7 +7,7 @@ public class Horse {
      */
     public static PaginatedTable FilterSortPaginateTable(
             List<String> headers,
-            List<List<Object>> tableData,
+            List<List<String>> tableData,
             List<FilterMetadata> filters,
             SortMetadata sortMetadata,
             PaginationMetadata paginationMetadata) {

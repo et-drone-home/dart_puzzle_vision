@@ -14,13 +14,13 @@ class SampleHorseData {
      * may have more or less parameters than this and there may be more or less rows
      * in the table.
      */
-    static List<List<Object>> GetSampleTableData() {
+    static List<List<String>> GetSampleTableData() {
         return Arrays.asList(
-                Arrays.asList("Thoroughbred", "Bay", 1.60, 3, true),
-                Arrays.asList("Thoroughbred", "Grey", 1.55, 3, true),
-                Arrays.asList("Arabian horse", "Bay", 1.51, 5, true),
-                Arrays.asList("Shetland Pony", "Black", 1.01, 2, false),
-                Arrays.asList("Shire horse", "Black", 1.71, 4, true)
+                Arrays.asList("Thoroughbred", "Bay", "1.6", "3", "true"),
+                Arrays.asList("Thoroughbred", "Grey", "1.55", "3", "true"),
+                Arrays.asList("Arabian horse", "Bay", "1.51", "5", "true"),
+                Arrays.asList("Shetland Pony", "Black", "1.01", "2", "false"),
+                Arrays.asList("Shire horse", "Black", "1.71", "4", "true")
         );
     }
 
@@ -31,7 +31,7 @@ class SampleHorseData {
     static List<FilterMetadata> GetSampleFilters() {
         return Arrays.asList(
                 new FilterMetadata("Breed", "Thoroughbred"),
-                new FilterMetadata("Age", 3)
+                new FilterMetadata("Age", "3")
         );
     }
 

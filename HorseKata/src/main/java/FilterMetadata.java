@@ -3,9 +3,9 @@
  */
 class FilterMetadata {
     final String columnHeader;
-    final Object value;
+    final String value;
 
-    public FilterMetadata(String columnHeader, Object value) {
+    public FilterMetadata(String columnHeader, String value) {
         this.columnHeader = columnHeader;
         this.value = value;
     }

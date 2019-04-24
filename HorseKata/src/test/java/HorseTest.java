@@ -11,7 +11,7 @@ public class HorseTest
     public void FilterSortPaginate()
     {
         List<String> headers = SampleHorseData.GetSampleHeaders();
-        List<List<Object>> tableData = SampleHorseData.GetSampleTableData();
+        List<List<String>> tableData = SampleHorseData.GetSampleTableData();
         List<FilterMetadata> filters = SampleHorseData.GetSampleFilters();
         SortMetadata sortMetadata = SampleHorseData.GetSampleSortMetadata();
         PaginationMetadata paginationMetadata = SampleHorseData.GetSamplePaginationMetadata();

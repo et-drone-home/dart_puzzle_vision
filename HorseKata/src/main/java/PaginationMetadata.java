@@ -3,7 +3,7 @@
  */
 public class PaginationMetadata {
     /**
-     * the index of the first record to be shown in the current page of data
+     * the index of the current page of data to be shown
      */
     final int firstRecordInPage;
 
