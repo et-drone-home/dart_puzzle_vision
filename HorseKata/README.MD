@@ -1,5 +1,5 @@
 
-This is an exercise helping you to learn Test-Driven Development. Your task is to test-drive a function that filters, sorts and paginates a bunch of data. In this case the data concerns horses.
+This is an exercise helping you to learn Test-Driven Development. Your task is to test-drive a function that filters, sorts and paginates a bunch of data. In this case, the data concerns horses.
 
 One of the challenges of this exercise is to design suitable test data. There is some sample data provided which you can use as a starting point. Feel free to modify it as needed.
 
