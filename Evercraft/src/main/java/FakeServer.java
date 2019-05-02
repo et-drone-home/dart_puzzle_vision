@@ -10,11 +10,7 @@ public class FakeServer {
     public static void main(String[] args) {
         port(7654);
         get("/todos", (req, res) -> {
-            return "{\"userId\": 1,\n" +
-                    "\"id\": 1,\n" +
-                    "\"title\": \"" + title + "\",\n" +
-                    "\"completed\": false\n" +
-                    "}";
+            return "{ \"title\": \"" + title + "\"}";
         });
         put("/todos", (req, res) -> {
             Map<String,Object> map = JSON.std.mapFrom(req.body());
