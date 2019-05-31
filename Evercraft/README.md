@@ -2,6 +2,11 @@
 
 In this exercise, you will build out a command line RPG called Evercraft for the company Blizzards of the Coast.  
 
+## Setup
+To drive the browser with Selenium install:
+
+```brew tap homebrew/cask && brew cask install chromedriver```
+
 ## Requirements
 
 #### Feature: User interaction
@@ -69,3 +74,5 @@ Character data will be stored in a CSV file with the format:
 The first line of the file should use the text above as a header record. An example data record is:
 
 `Steve,10,10,10,10`
+
+

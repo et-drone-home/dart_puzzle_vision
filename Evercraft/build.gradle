@@ -17,6 +17,8 @@ allprojects {
         testCompile 'org.assertj:assertj-core:3.8.0'
         testCompile 'io.cucumber:cucumber-java8:4.2.0'
         testCompile 'io.cucumber:cucumber-junit:4.2.0'
+        testCompile 'org.seleniumhq.selenium:selenium-java:2.41.0'
+        testCompile 'org.seleniumhq.selenium:selenium-chrome-driver:2.23.0'
     }
     test { finalizedBy jacocoTestReport }
 
@@ -36,13 +38,19 @@ class RunAsyncTask extends DefaultTask {
         es.submit({
             project.javaexec {
                 classpath = project.sourceSets.main.runtimeClasspath
-                main = "FakeServer"
+                main = "FakeDiceServer"
+            }
+        } as Callable)
+        es.submit({
+            project.javaexec {
+                classpath = project.sourceSets.main.runtimeClasspath
+                main = "EvercraftApp"
             }
         } as Callable)
     }
 }
 
-task helloAsync(type: RunAsyncTask, dependsOn: compileJava) {
+task serverAsync(type: RunAsyncTask, dependsOn: compileJava) {
     doLast {
         println LocalDateTime.now().toString() + 'sleeping'
         sleep(2 * 1000)
@@ -61,7 +69,7 @@ task killJetty(type:Exec) {
 }
 
 task cucumber() {
-    dependsOn assemble, compileTestJava, helloAsync
+    dependsOn assemble, compileTestJava, serverAsync
     doFirst {
         javaexec {
             main = "cucumber.api.cli.Main"

@@ -1,32 +1,32 @@
 package com.atdd.evercraft;
 
 import cucumber.api.java8.En;
+import org.openqa.selenium.By;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 
-import java.io.InputStream;
-import java.io.OutputStream;
-
-import static com.atdd.evercraft.StepUtilities.getStreamContent;
 import static org.junit.Assert.*;
 
 public class EvercraftSteps implements En {
-    InputStream inputStream;
-    OutputStream outputStream;
-    Process process;
-
+    EventFiringWebDriver webDriver;
     public EvercraftSteps() {
-        When("^I run evercraft$", () -> {
-            process = Runtime.getRuntime().exec("java -cp build/libs/Evercraft.jar EvercraftApp");
-            inputStream = process.getInputStream();
-            outputStream = process.getOutputStream();
+        Before(() -> {
+            webDriver = new EventFiringWebDriver(new ChromeDriver());
+            webDriver.get("http://localhost:4567/");
         });
 
-        When("^I get started$", () -> {
-            StepUtilities.sendOutputCharacter(outputStream, '\n');
+        After(() -> webDriver.close());
+
+        Given("^I start a new game$", () -> {
+            webDriver.findElement(By.id("newGame")).click();
         });
 
-        Then("^I see '(.*)'$", (String content) -> {
-            String output = getStreamContent(inputStream);
-            assertEquals(content, output);
+        When("^I make an attack$", () -> {
+            webDriver.findElement(By.id("attack")).click();
+        });
+
+        Then("^my opponent loses 1 hit point$", () -> {
+            assertEquals("4", webDriver.findElement(By.id("bryceHitPoints")).getText());
         });
     }
 
