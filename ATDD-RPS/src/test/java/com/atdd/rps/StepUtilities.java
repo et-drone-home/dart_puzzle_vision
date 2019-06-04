@@ -1,4 +1,4 @@
-package com.atdd.fizzbuzz;
+package com.atdd.rps;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -21,17 +21,4 @@ public class StepUtilities {
         return con.getResponseCode();
     }
 
-    static String getStreamContent(InputStream stream) {
-        java.util.Scanner s = new java.util.Scanner(stream).useDelimiter("\\A");
-        return s.hasNext() ? s.next() : "";
-    }
-
-    static String runCommand(String command) throws IOException, InterruptedException {
-        Process process = Runtime.getRuntime().exec(command);
-        process.waitFor();
-        if(!process.isAlive() && process.exitValue() != 0) {
-            fail("Command failed " + getStreamContent(process.getErrorStream()));
-        }
-        return getStreamContent(process.getInputStream());
-    }
 }
