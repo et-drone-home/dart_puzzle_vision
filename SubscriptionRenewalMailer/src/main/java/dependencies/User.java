@@ -7,12 +7,12 @@ import java.util.Objects;
 public class User {
     private boolean isActive;
     private LocalDate lastPaidDate;
-    private String name;
+    private String email;
 
-    public User(boolean isActive, LocalDate lastPaidDate, String name) {
+    public User(boolean isActive, LocalDate lastPaidDate, String email) {
         this.isActive = isActive;
         this.lastPaidDate = lastPaidDate;
-        this.name = name;
+        this.email = email;
     }
 
     @Override
@@ -22,12 +22,12 @@ public class User {
         User user = (User) o;
         return isActive == user.isActive &&
                 Objects.equals(lastPaidDate, user.lastPaidDate) &&
-                Objects.equals(name, user.name);
+                Objects.equals(email, user.email);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(isActive, lastPaidDate, name);
+        return Objects.hash(isActive, lastPaidDate, email);
     }
 
     @Override
@@ -35,7 +35,7 @@ public class User {
         return "User{" +
                 "isActive=" + isActive +
                 ", lastPaidDate=" + lastPaidDate +
-                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
                 '}';
     }
 
@@ -55,11 +55,11 @@ public class User {
         this.lastPaidDate = lastPaidDate;
     }
 
-    public String getName() {
-        return name;
+    public String getEmail() {
+        return email;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

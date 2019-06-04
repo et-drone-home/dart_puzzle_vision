@@ -1,5 +1,5 @@
 package dependencies;
 
 public interface UserMailer {
-    void sendBillingProblemEmailTo(User user, String message);
+    void sendBillingProblemEmailTo(User user, String messageText, String emailSender);
 }

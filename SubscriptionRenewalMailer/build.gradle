@@ -4,7 +4,12 @@ allprojects {
   repositories { 
     jcenter() 
   }
+  
   dependencies {
+    compile 'javax.mail:mail:1.5.0-b01'
+    compile 'com.fasterxml.jackson.jr:jackson-jr-all:2.9.0'
+    compile 'org.xerial:sqlite-jdbc:3.27.2.1'
+    testCompile 'org.mockito:mockito-core:2.23.0'
     testCompile 'junit:junit:4.12'
     testCompile 'org.assertj:assertj-core:3.8.0'
   }
