@@ -1,25 +1,22 @@
 # The Evercraft Kata   
 
-In this exercise, you will build out a command line RPG called Evercraft for the company Blizzards of the Coast.  
+In this exercise, you will build out a simple web-based RPG called Evercraft for the company Blizzards of the Coast.  Leverage acceptance test driven development, in addition to all the other practices we've learned, to build this game.
+
+## Setup
+To drive the browser with Selenium install:
+
+```brew tap homebrew/cask && brew cask install chromedriver```
 
 ## Requirements
 
-#### Feature: User interaction
 
-> As a user, I want to interact with the application by viewing messages and pressing keys.
+#### Character display
 
-- Print a welcome message on app launches
-- Press return when ready to start
-- After the first attack happens, press return for each additional attack 
-- Game ends when one player dies
+> As a player, I want to my character's data so that I see how I stack up against my opponent
 
-#### Feature: Create a Character
+- can display each character's name, hit points, armor, etc.
 
-> As a character, I want to have a name so that I can be distinguished from other characters
-
-- can display each character's name
-
-#### Feature: Character Can Attack
+#### Character Can Attack
 
 > As a combatant, I want to be able to attack other combatants and damage my enemies so that they will die and I will live
 
@@ -31,7 +28,7 @@ In this exercise, you will build out a command line RPG called Evercraft for the
 - has 5 Hit Points by default
 - when hit points are 0 or fewer, the character is dead
 
-#### Feature: Character Has Abilities Scores
+#### Character Has Abilities Scores
 
 > As a character, I want to have several abilities so that I am not identical to other characters except in name
 
@@ -47,7 +44,7 @@ In this exercise, you will build out a command line RPG called Evercraft for the
 |   __4__   |    -3    |   __9__   |    -1    |  __14__   |    +2    |  __19__   |    +4    |
 |   __5__   |    -3    |  __10__   |     0    |  __15__   |    +2    |  __20__   |    +5    |
 
-#### Feature: Character Ability Modifiers Modify Attributes
+#### Character Ability Modifiers Modify Attributes
 
 > As a character, I want to apply my ability modifiers improve my capabilities in combat so that I can vanquish my enemy with extreme prejudice
 
@@ -58,7 +55,7 @@ In this exercise, you will build out a command line RPG called Evercraft for the
 - add Dexterity modifier to armor class
 - add Constitution modifier to hit points (hit points cannot start below 1)
 
-#### Feature: Character data loading
+#### Character data loading
 
 > As a player, I want to specify the character data of my two combatants
 
@@ -69,3 +66,11 @@ Character data will be stored in a CSV file with the format:
 The first line of the file should use the text above as a header record. An example data record is:
 
 `Steve,10,10,10,10`
+
+#### Opponent attacks
+
+> As a player, I want my opponent to attack me to make for an interesting game
+
+## Running Cucumber
+
+Run cucumber tests using `gradle cucumber` from the command line or in the Gradle menu of IntelliJ.
