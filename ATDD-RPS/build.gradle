@@ -38,7 +38,7 @@ class RunAsyncTask extends DefaultTask {
         es.submit({
             project.javaexec {
                 classpath = project.sourceSets.main.runtimeClasspath
-                main = "FakeServer"
+                main = "FakeGestureServer"
             }
         } as Callable)
         es.submit({

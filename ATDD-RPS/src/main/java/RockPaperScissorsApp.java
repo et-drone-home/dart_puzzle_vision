@@ -20,7 +20,7 @@ public class RockPaperScissorsApp {
             return redirectHome(response);
         }));
         post("/play", ((request, response) -> {
-            String opponentGesture = JsonParser.getGesture(new java.net.URL("http://localhost:7654/gesture").openStream());
+            String opponentGesture = JsonParser.getGesture(new java.net.URL("http://localhost:9876/gesture").openStream());
             String gesture = request.queryParams("gesture");
             game.play(gesture, opponentGesture);
             return redirectHome(response);

@@ -13,11 +13,12 @@ import static org.junit.Assert.fail;
 public class GameSteps implements En {
     EventFiringWebDriver webDriver;
     String name = "Steve";
+    public static final String ROCK_PAPER_SCISSORS_GAME_URL = "http://localhost:4567/";
+    public static final String FAKE_GESTURE_SERVER_URL = "http://localhost:9876/gesture";
 
     public GameSteps() {
         Before(() -> {
-            webDriver = new EventFiringWebDriver(new ChromeDriver());
-            webDriver.get("http://localhost:4567/");
+            loadRockPaperScissorsGamePage();
         });
 
         After(() -> webDriver.close());
@@ -57,10 +58,14 @@ public class GameSteps implements En {
         });
     }
 
+    private void loadRockPaperScissorsGamePage() {
+        webDriver = new EventFiringWebDriver(new ChromeDriver());
+        webDriver.get(ROCK_PAPER_SCISSORS_GAME_URL);
+    }
+
     private void setupOpponentGesture(String gesture) throws IOException {
         String content = "{\"gesture\":\"" + gesture + "\"}";
-        String url = "http://localhost:7654/gesture";
-        int responseCode = StepUtilities.makePutRequest(content, url);
+        int responseCode = StepUtilities.makePutRequest(content, FAKE_GESTURE_SERVER_URL);
         assertEquals(200, responseCode);
     }
 
